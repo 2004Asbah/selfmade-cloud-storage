@@ -1,0 +1,53 @@
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - nginx-proxy
+
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    environment:
+      - VIRTUAL_HOST=asbahcloud.duckdns.org
+      - LETSENCRYPT_HOST=asbahcloud.duckdns.org
+      - LETSENCRYPT_EMAIL=asbahrehman123@gmail.com
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud_user'@'%
+      - MYSQL_PASSWORD=your_new_password
+      - MYSQL_HOST=db
+    volumes:
+      - nextcloud-data:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - nginx-proxy
+      - db-network
+
+  db:
+    image: mariadb
+    container_name: nextcloud_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud_user'@'%
+      - MYSQL_PASSWORD=your_new_password
+    volumes:
+      - nextcloud-db:/var/lib/mysql
+    networks:
+      - db-network
+
+volumes:
+  nextcloud-data:
+  nextcloud-db:
+
+networks:
+  nginx-proxy:
+    external: true
+  db-network:
+
