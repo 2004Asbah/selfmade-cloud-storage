@@ -1,0 +1,11 @@
+# Ignore Nextcloud data & database volumes
+nextcloud-data/
+nextcloud-db/
+
+# Ignore Docker related local configs
+.env
+*.log
+
+# Ignore OS junk files
+.DS_Store
+Thumbs.db
