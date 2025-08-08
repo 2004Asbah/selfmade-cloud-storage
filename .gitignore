@@ -9,3 +9,4 @@ nextcloud-db/
 # Ignore OS junk files
 .DS_Store
 Thumbs.db
+ngrok-stable-linux-amd64.zip
