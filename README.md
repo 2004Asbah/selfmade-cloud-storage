@@ -11,4 +11,4 @@ A self-hosted Nextcloud setup using Docker & Nginx Proxy.
 
 =======
 # selfmade-cloud-storage
->>>>>>> 3ce76559034168aad9fbdc2a78dade902e1cb6a5
+
