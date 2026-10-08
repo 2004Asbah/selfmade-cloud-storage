@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Selfmade Cloud Storage
 
 A self-hosted Nextcloud setup using Docker & Nginx Proxy.
@@ -9,6 +9,5 @@ A self-hosted Nextcloud setup using Docker & Nginx Proxy.
 - SSL support ready
 - Persistent storage for data & database
 
-=======
-# selfmade-cloud-storage
+
 
